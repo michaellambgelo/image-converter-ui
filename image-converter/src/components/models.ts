@@ -1,6 +1,6 @@
-export interface Todo {
+export interface ConversionMethod {
   id: number;
-  content: string;
+  methodName: string;
 }
 
 export interface Meta {

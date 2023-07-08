@@ -12,16 +12,15 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          michaellamb.dev
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div>Built with Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
     <q-drawer
       v-model="leftDrawerOpen"
-      show-if-above
       bordered
     >
       <q-list>
@@ -58,39 +57,27 @@ const linksList = [
   },
   {
     title: 'Github',
-    caption: 'github.com/quasarframework',
+    caption: 'github.com/michaellambgelo',
     icon: 'code',
-    link: 'https://github.com/quasarframework'
+    link: 'https://github.com/michaellambgelo'
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
+    title: 'Dev Discord',
+    caption: 'michaellamb.dev',
     icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    link: 'https://discord.gg/T2esqjDEVU'
   },
   {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
+    title: 'LinkStack',
+    caption: 'connect with Michael Lamb',
     icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
+    link: 'https://link.michaellamb.dev'
   },
   {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
+    title: 'michaellamb.dev blog',
+    caption: 'tech & life',
     icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
+    link: 'https://michaellamb.dev'
   }
 ];
 

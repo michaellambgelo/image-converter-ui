@@ -1,14 +1,16 @@
 <template>
   <div>
     <p>{{ title }}</p>
-    <ul>
-      <li v-for="todo in todos" :key="todo.id" @click="increment">
-        {{ todo.id }} - {{ todo.content }}
-      </li>
-    </ul>
-    <p>Count: {{ todoCount }} / {{ meta.totalCount }}</p>
-    <p>Active: {{ active ? 'yes' : 'no' }}</p>
-    <p>Clicks on todos: {{ clickCount }}</p>
+    <q-input v-model="url" filled type="url" hint="Enter SVG URI" />
+    <br />
+    <div class="q-gutter-md">
+      <q-btn
+        v-for="conversionMethod in conversionMethods" :key="conversionMethod.id"
+        color="primary"
+        :size="'xl'"
+        :label="conversionMethod.methodName"
+      > <br /></q-btn>
+    </div>
   </div>
 </template>
 
@@ -21,7 +23,7 @@ import {
   toRef,
   Ref,
 } from 'vue';
-import { Todo, Meta } from './models';
+import { ConversionMethod, Meta } from './models';
 
 function useClickCount() {
   const clickCount = ref(0);
@@ -33,9 +35,9 @@ function useClickCount() {
   return { clickCount, increment };
 }
 
-function useDisplayTodo(todos: Ref<Todo[]>) {
-  const todoCount = computed(() => todos.value.length);
-  return { todoCount };
+function useDisplayConversionMethod(conversionMethods: Ref<ConversionMethod[]>) {
+  const methodCount = computed(() => conversionMethods.value.length);
+  return { methodCount };
 }
 
 export default defineComponent({
@@ -45,8 +47,8 @@ export default defineComponent({
       type: String,
       required: true
     },
-    todos: {
-      type: Array as PropType<Todo[]>,
+    conversionMethods: {
+      type: Array as PropType<ConversionMethod[]>,
       default: () => []
     },
     meta: {
@@ -55,10 +57,10 @@ export default defineComponent({
     },
     active: {
       type: Boolean
-    }
+    },
   },
   setup (props) {
-    return { ...useClickCount(), ...useDisplayTodo(toRef(props, 'todos')) };
+    return { url: ref(''), ...useClickCount(), ...useDisplayConversionMethod(toRef(props, 'conversionMethods')) };
   },
 });
 </script>
